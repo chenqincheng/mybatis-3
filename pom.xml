@@ -264,6 +264,16 @@
       <version>2.5</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.38</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -273,6 +283,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <testCompilerArgument>${maven.compiler.testCompilerArgument}</testCompilerArgument>
+            <source>1.8</source>
+            <target>1.8</target>
         </configuration>
       </plugin>
       <plugin>
