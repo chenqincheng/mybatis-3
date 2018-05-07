@@ -92,10 +92,15 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ * XML 映射配置
+ * 参考URl: http://www.mybatis.org/mybatis-3/zh/configuration.html
  * @author Clinton Begin
  */
 public class Configuration {
 
+  /**
+   * 环境配置
+   */
   protected Environment environment;
 
   protected boolean safeRowBoundsEnabled;

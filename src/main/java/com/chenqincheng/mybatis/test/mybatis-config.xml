@@ -20,5 +20,4 @@
     <mappers>
         <mapper resource="com/chenqincheng/mybatis/test/UserMapper.xml"/>
     </mappers>
-
 </configuration>
