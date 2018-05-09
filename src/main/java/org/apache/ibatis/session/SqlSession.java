@@ -25,8 +25,8 @@ import org.apache.ibatis.executor.BatchResult;
 
 /**
  * The primary Java interface for working with MyBatis.
+ * 通过这个接口，你可以执行命令，获取mapper映射，管理事务
  * Through this interface you can execute commands, get mappers and manage transactions.
- *
  * @author Clinton Begin
  */
 public interface SqlSession extends Closeable {
@@ -216,7 +216,7 @@ public interface SqlSession extends Closeable {
    */
   int delete(String statement, Object parameter);
 
-  /**
+  /**提交
    * Flushes batch statements and commits database connection.
    * Note that database connection will not be committed if no updates/deletes/inserts were called.
    * To force the commit call {@link SqlSession#commit(boolean)}
@@ -224,12 +224,14 @@ public interface SqlSession extends Closeable {
   void commit();
 
   /**
+   * 提交
    * Flushes batch statements and commits database connection.
-   * @param force forces connection commit
+   * @param force forces connection commit 是否强制
    */
   void commit(boolean force);
 
   /**
+   * 回滚
    * Discards pending batch statements and rolls database connection back.
    * Note that database connection will not be rolled back if no updates/deletes/inserts were called.
    * To force the rollback call {@link SqlSession#rollback(boolean)}
@@ -237,9 +239,10 @@ public interface SqlSession extends Closeable {
   void rollback();
 
   /**
+   * 回滚
    * Discards pending batch statements and rolls database connection back.
    * Note that database connection will not be rolled back if no updates/deletes/inserts were called.
-   * @param force forces connection rollback
+   * @param force forces connection rollback 是否强制
    */
   void rollback(boolean force);
 
@@ -251,23 +254,27 @@ public interface SqlSession extends Closeable {
   List<BatchResult> flushStatements();
 
   /**
+   * 关闭
    * Closes the session
    */
   @Override
   void close();
 
   /**
+   * 清除本地session缓存
    * Clears local session cache
    */
   void clearCache();
 
   /**
+   * 获取当前配置
    * Retrieves current configuration
    * @return Configuration
    */
   Configuration getConfiguration();
 
   /**
+   *获取映射器
    * Retrieves a mapper.
    * @param <T> the mapper type
    * @param type Mapper interface class
@@ -276,6 +283,7 @@ public interface SqlSession extends Closeable {
   <T> T getMapper(Class<T> type);
 
   /**
+   * 获取数据库连接
    * Retrieves inner database connection
    * @return Connection
    */

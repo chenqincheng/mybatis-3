@@ -17,6 +17,11 @@ package org.apache.ibatis.exceptions;
 
 /**
  * @author Clinton Begin
+ * 结果太多异常。
+ * eg.期望查询一条结果，但返回多条结果.
+ * User user = userMapper.selectUserByUsername("chenqincheng");
+ * 如果数据库存在多个用户名为"chenqincehng"的用户，抛出此异常！
+ * 正确:List<User> users = userMapper.selectUserByUsername("chenqincheng");
  */
 public class TooManyResultsException extends PersistenceException {
 
